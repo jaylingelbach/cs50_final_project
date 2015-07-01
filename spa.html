@@ -1,0 +1,82 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Test-2</title>
+  <meta name="description" content="My Parse App">
+  <meta name="viewport" content="width=device-width">
+  <link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="css/styles.css" media="all" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<a href="#home" class="navbar-brand">Blogging web app</a>
+		<ul class="nav navbar-nav">
+		<li><a href="#register" id="signup" class="navbar">Signup</a></li>
+		<li><a href="#home" id="logout" class ="navbar">Log out</a></li>		
+		</ul>
+		
+	<div id="navbar" class="navbar-collapse collapse">
+	<form id="login" class="navbar-form navbar-right">
+		<div class="form-group">
+		<input id="login-username" type="text" placeholder ="username" class="form-control"></input>
+		</div>
+		<div class="form-group">
+		<input id="login-password" type="password"  placeholder="password" class="form-control"></input>
+		</div>		
+		<button id="login-submit" type="submit" class="btn btn-success">Sign in</button>
+
+	</form>		
+	
+		
+	</nav>
+
+	<div id="home" class="page">
+		<div class="content">
+			<h2>Blog Posts</h2>
+				<div id="post-detail" data-id= "" class="content">
+					<a href="#newpost">New Post</a>
+		        <p><h2 id="post-detail-title"></h2>
+		        <small id="post-detail-author"></small></p>
+		        <p id="post-detail-content"></p>
+		        <img id="post-detail-image" src=""></img>  
+		        <ul id="list-posts" class="blog">
+	        	</ul>    
+			</div>
+		</div>
+	</div>
+	<div id="newpost" class="page">
+		<div class="content">
+			<h2>Enter post below</h2>
+				<form id ="post-form">				    
+			        <p><input id="post-title" placeholder ="Post title"></input></p>
+			        <p><textarea id="post-content" placeholder="Post content"></textarea></p>
+			        <p><input id="post-file" type = "file"</input></p>
+			        <p><input id="post-submit" type = "submit"></input></p>
+			    </form>
+		</div>
+	</div>
+
+	<div id="register" class="page">
+		<div class="content">			
+			<form id ="signup" >
+		      <h2>Sign up</h2>
+		      <p><input id="signup-username" type ="text" placeholder ="username"></input></p>
+		      <p><input id="signup-password" type="password" placeholder="password"></input></p>
+		      <p><input id="signup-password2" type="password" placeholder="confirm password"></input></p>
+		      <p><input id="email" placeholder="username@email.com"></input></p>
+		      <p><input id="signup-submit" type = "submit"></input></p>		      
+		    </form>
+		</div>
+	</div>
+
+	
+
+	<script src= "js/main.js"></script>
+</body>
+</html>

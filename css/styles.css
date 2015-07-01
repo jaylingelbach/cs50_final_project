@@ -1,0 +1,36 @@
+body, html {
+  padding-top: 50px;
+  padding-bottom: 20px; }
+
+.content {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px; }
+
+/*
+nav {
+	
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: $header-height;
+	background-color: #ddd;
+
+}
+
+nav a {
+	height: $header-height;
+	display: block;
+	line-height: $header-height;
+	float: left;
+	text-decoration: none;
+	padding: 0 0.5em;
+}
+
+nav li:first-child a {
+	padding-left: 1em;
+}
+*/
+
+/*# sourceMappingURL=styles.css.map */
