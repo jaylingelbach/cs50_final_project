@@ -11,16 +11,21 @@ function showPage(pageId) {
 
 showPage("#home");
 
+
 $(window).on("hashchange", function(event){
   showPage(location.hash);
 });
 
 location.hash= "";
-location.hash="#home"
+location.hash="#home";
 
 // Globals ..extend("Table name")
 var Post = Parse.Object.extend("Post");
 var Comment = Parse.Object.extend("Comment");
+var userLoggedIn = Parse.User.current();
+var userLoggedIn2 = userLoggedIn.get("username")
+console.log(userLoggedIn2);
+$("#user-logged-in").html("<small>Logged in as: </small> "+  userLoggedIn2);
 
 
 
@@ -142,7 +147,7 @@ $("#post-form").submit(function(event) {
   var title = $("#post-title").val();
   var content = $("#post-content").val();
   var user = Parse.User.current();
-
+  if(user){
   var newPost = new Post();
   newPost.set("title", title);
   newPost.set("content", content);
@@ -188,7 +193,11 @@ $("#post-form").submit(function(event) {
       }  
     });
   }
-
+}
+  else{
+    alert("You must be logged in to post!");
+  }
+  window.location.href = "#home";
 });
 
 /**
@@ -225,15 +234,11 @@ $("#list-posts").on("click", "a", function(event){
     //inserting image and id
     $("#post-comment-id").val(id);
     $("#post-detail-image").attr("src", src);
-    
-    
-    
-  }, error: function(error){ 
-    console.log(error.message);
-    }
-  });
-
-
+       
+    }, error: function(error){ 
+      console.log(error.message);
+      }
+    });
 });
 
 /**
@@ -243,27 +248,29 @@ $("#list-posts").on("click", "a", function(event){
 function getPosts(){
   var query = new Parse.Query(Post);
   query.include("user");
-  var output = "";
- query.find({
+  query.include("post");
+  query.descending("createdAt");
+  query.find({
   success: function(results) {
     // results is an array of Parse.Object.
-    for(var i in results) {
-      var title = results[i].get("title");
-      var content = results[i].get("content");
-      var user = results[i].get("user");
-      var username = user.get("username");
-      var id= results[i].id;
-      //if there is a file save it to a var called file
-      //add the file to the url
+      var output = "";
+      for(var i in results) {
+        var title = results[i].get("title");
+        var content = results[i].get("content");
+        var user = results[i].get("user");
+        var username = user.get("username");
+        var id= results[i].id;
+    //if there is a file save it to a var called file
+    //add the file to the url
       var img ="";
       if(results[i].get("file")){
         var file = results[i].get("file");
         var url = file.url();
         img = "<img src='"+url+"'>";
       }
-
-
-
+      if(results[i].get("username") === null){
+        i++;
+      }
       output += "<li>";
       output += "<h4>Title: "+ title+ "</h4>";
       output += "<small> Author: " + username +"</small>";
@@ -277,11 +284,11 @@ function getPosts(){
 
   },
 
-  error: function(error) {
-    // error is an instance of Parse.Error.
-    console.log("Query error: " + error.message);
-  }
-});
+    error: function(error) {
+      // error is an instance of Parse.Error.
+      console.log("Query error: " + error.message);
+    }
+  });
 
 }
 

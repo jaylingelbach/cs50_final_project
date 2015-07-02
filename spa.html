@@ -19,6 +19,7 @@
 		<ul class="nav navbar-nav">
 		<li><a href="#register" id="signup" class="navbar">Signup</a></li>
 		<li><a href="#home" id="logout" class ="navbar">Log out</a></li>		
+				
 		</ul>
 		
 	<div id="navbar" class="navbar-collapse collapse">
@@ -37,6 +38,7 @@
 	</nav>
 
 	<div id="home" class="page">
+		<div id="user-logged-in" class="container"></div>
 		<div class="content">
 			<h2>Blog Posts</h2>
 				<div id="post-detail" data-id= "" class="content">
@@ -54,10 +56,10 @@
 		<div class="content">
 			<h2>Enter post below</h2>
 				<form id ="post-form">				    
-			        <p><input id="post-title" placeholder ="Post title"></input></p>
-			        <p><textarea id="post-content" placeholder="Post content"></textarea></p>
-			        <p><input id="post-file" type = "file"</input></p>
-			        <p><input id="post-submit" type = "submit"></input></p>
+			        <p><input id="post-title" placeholder ="Post title" class="form-control input-lrg"></input></p>
+			        <p><textarea id="post-content" placeholder="Post content" class="form-control input-lrg" rows="5"></textarea></p>
+			        <p><button class="btn btn-info btn-block" id="post-file" type = "file"</button>Upload</p>
+			        <p><button class="btn btn-info btn-block" id="post-submit" type = "submit">Post</button></p>
 			    </form>
 		</div>
 	</div>

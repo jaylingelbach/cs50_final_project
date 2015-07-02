@@ -1,12 +1,20 @@
+.navbar-collapse
+{
+	background-image: url("http://pokecheats.net/forum/images/hittheroad/elements/background.jpg");
+}
+
 body, html {
   padding-top: 50px;
-  padding-bottom: 20px; }
+  padding-bottom: 20px; 
+  background-image: url("http://themextemplates.com/demo/replay/wp-content/themes/replay/images/ribbon_slider_gradient.png");
+}
 
 .content {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 80px; }
+  margin-top: 80px; 
+}
 
 /*
 nav {
