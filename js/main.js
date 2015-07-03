@@ -164,7 +164,7 @@ $("#post-form").submit(function(event) {
     var newFile = new Parse.File(fileName, file);
     newFile.save({
       success: function(){
-
+        checkLogin();
       },
       error: function(){
         console.log("File save error: " + error.message);
